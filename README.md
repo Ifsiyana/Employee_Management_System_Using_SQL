@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This project is part of a professional portfolio showcasing database administration and management skills. It includes a well-structured relational database schema, sample data, and essential SQL queries to efficiently manage employee records in a company. The database is designed to handle employee attendance, leave requests, salary records, and department information while ensuring data integrity through proper relationships and constraints.
+This project is part of a simple portfolio showcasing database administration and management skills. It includes a well-structured relational database schema, sample data, and essential SQL queries to efficiently manage employee records in a company. The database is designed to handle employee attendance, leave requests, salary records, and department information while ensuring data integrity through proper relationships and constraints.
 
 ## Database Diagram
 
