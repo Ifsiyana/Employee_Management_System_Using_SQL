@@ -41,7 +41,7 @@ This database is designed to store and manage employee-related information in a 
 
 - Import dummy_data.sql to populate the database with sample data.
 
-- Execute relevant queries from queries.sql.
+- Execute relevant queries from Simple Query Analysis data Employee.sql
 
 ## Contact
 
