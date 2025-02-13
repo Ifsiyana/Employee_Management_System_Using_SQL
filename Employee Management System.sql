@@ -8,14 +8,14 @@ CREATE TABLE departments (
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
--- Tabel Positions Employee
+-- Table Positions 
 CREATE TABLE positions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     department_id INT REFERENCES departments(id) ON DELETE CASCADE
 );
 
--- Tabel Karyawan
+-- Table Employee
 CREATE TABLE employees (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE employees (
     status VARCHAR(20) CHECK (status IN ('Active', 'Inactive')) DEFAULT 'Active'
 );
 
--- Tabel Gaji
+-- Salaries table
 CREATE TABLE salaries (
     id SERIAL PRIMARY KEY,
     employee_id INT REFERENCES employees(id) ON DELETE CASCADE,
@@ -36,7 +36,7 @@ CREATE TABLE salaries (
     effective_date DATE NOT NULL
 );
 
--- Tabel Riwayat Gaji
+-- Table salaries history
 CREATE TABLE salary_history (
     id SERIAL PRIMARY KEY,
     employee_id INT REFERENCES employees(id) ON DELETE CASCADE,
@@ -46,7 +46,7 @@ CREATE TABLE salary_history (
     changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabel Cuti Karyawan
+-- Table leave request
 CREATE TABLE leave_requests (
     id SERIAL PRIMARY KEY,
     employee_id INT REFERENCES employees(id) ON DELETE CASCADE,
@@ -57,7 +57,7 @@ CREATE TABLE leave_requests (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabel User Authentication
+-- Table User Authentication
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -67,10 +67,10 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabel Absensi Karyawan
+-- Tabel attendance
 CREATE TABLE attendance (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    employee_id bigint UNSIGNED NOT NULL,  -- ✅ Sesuaikan dengan tipe id di tabel employees
+    employee_id bigint UNSIGNED NOT NULL,  
     attendance_date DATE NOT NULL DEFAULT (CURRENT_DATE),  
     check_in TIME DEFAULT NULL,
     check_out TIME DEFAULT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE attendance (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (employee_id) REFERENCES employees(id) ON DELETE CASCADE
 );
-
+--Input data dumy--
 INSERT INTO departments (name) VALUES
 ('HR'),
 ('Finance'),
